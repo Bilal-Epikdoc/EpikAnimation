@@ -4,9 +4,9 @@ export default defineConfig({
   html: {
     template: './public/index.html',
   },
-   performance: {
-    chunkSplit: {
-      strategy: 'all-in-one',
-    },
-  },
+  //  performance: {
+  //   chunkSplit: {
+  //     strategy: 'all-in-one',
+  //   },
+  // },
 });

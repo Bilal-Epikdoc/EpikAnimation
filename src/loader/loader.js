@@ -31,17 +31,20 @@ class EpikLoader extends HTMLElement {
       }
       
       .bg-circle {
-        position: absolute;
-        top: 45px;
-        left: 44px;
-        width: 10px;
-        height: 9.5px; /* 95% of width */
-        background-color: var(--primary-color);
-        border-radius: 50%;
-        scale: 0;
-        z-index: -1;
-        top: 45px;
-        left: 44px;
+         position: absolute;
+          top: -44px;
+          right: -50px;
+          width: 200px; 
+          height: 186px; 
+          background-color: var(--primary-color);
+          border-radius: 50%;
+          transform: scale(0); 
+          transform-origin: center;
+          will-change: transform;
+          backface-visibility: hidden;
+          transform-style: preserve-3d;
+          image-rendering: auto;
+          z-index: -1;
       }
       
       .dot1 {
@@ -62,7 +65,7 @@ class EpikLoader extends HTMLElement {
       }
       
       #loader,
-      .dot {
+      .dot, .bg-circle {
         will-change: transform, opacity;
         backface-visibility: hidden;
       }
@@ -259,7 +262,7 @@ class EpikLoader extends HTMLElement {
 
     scaleBgCircle
       .to(bgCircle, {
-        scale: '9',
+        scale: '.5',
         delay: 1.8,
         duration: 1,
         rotation: '-=360',
