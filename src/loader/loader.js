@@ -282,13 +282,13 @@ class EpikLoader extends HTMLElement {
 
     const scaleout = gsap.timeline();
 
-    // scaleout.to(loader, {
-    //   scale: '0',
-    //   delay: 4,
-    // });
+    scaleout.to(loader, {
+      scale: '0',
+      delay: 4,
+    });
 
     const masterTl = gsap.timeline({
-    //   repeat: -1,
+      repeat: -1,
       repeatDelay: 1, // optional delay between loops
       onRepeat: () => {
         // Reset child timelines
