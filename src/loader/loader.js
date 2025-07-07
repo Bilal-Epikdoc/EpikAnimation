@@ -12,7 +12,7 @@ class EpikLoader extends HTMLElement {
         --primary-color: #5d20d3;
       }
       
-      #loader {
+      #epik-loader {
         width: 100px;
         height: 100px;
         position: fixed;
@@ -21,7 +21,7 @@ class EpikLoader extends HTMLElement {
         transform: translate(-50%, -50%);
       }
       
-      .dot {
+      .epik-dot {
         position: absolute;
         width: 20px;
         height: 20px;
@@ -30,7 +30,7 @@ class EpikLoader extends HTMLElement {
         /* transform: scale(0); Start tiny */
       }
       
-      .bg-circle {
+      .epik-bg-circle {
          position: absolute;
           top: -44px;
           right: -50px;
@@ -64,31 +64,37 @@ class EpikLoader extends HTMLElement {
         left: 0;
       }
       
-      #loader,
-      .dot, .bg-circle {
+      #epik-loader,
+      .epik-dot, .epik-bg-circle {
         will-change: transform, opacity;
         backface-visibility: hidden;
       }
       </style>
 
-      <div id="loader">
-        <div class="bg-circle"></div>
-        <div class="dot dot1"></div>
-        <div class="dot dot2"></div>
-        <div class="dot dot3"></div>
-        <div class="dot dot4"></div>
-        <div class="bg-circle"></div>
+      <div id="epik-loader">
+        <div class="epik-bg-circle"></div>
+        <div class="epik-dot dot1"></div>
+        <div class="epik-dot dot2"></div>
+        <div class="epik-dot dot3"></div>
+        <div class="epik-dot dot4"></div>
+        <div class="epik-bg-circle"></div>
       </div>
     `;
   }
 
   connectedCallback() {
+    const userStyles = this.getAttribute('styles');
+    if (userStyles) {
+      const styleTag = document.createElement('style');
+      styleTag.textContent = userStyles;
+      this.shadowRoot.appendChild(styleTag);
+    }
     const dot1 = this.shadowRoot.querySelector('.dot1');
     const dot2 = this.shadowRoot.querySelector('.dot2');
     const dot3 = this.shadowRoot.querySelector('.dot3');
     const dot4 = this.shadowRoot.querySelector('.dot4');
-    const loader = this.shadowRoot.querySelector('#loader');
-    const bgCircle = this.shadowRoot.querySelector('.bg-circle');
+    const loader = this.shadowRoot.querySelector('#epik-loader');
+    const bgCircle = this.shadowRoot.querySelector('.epik-bg-circle');
 
     gsap.config({ force3D: true, autoSleep: 0.1 });
 

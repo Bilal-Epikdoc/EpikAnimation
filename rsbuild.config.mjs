@@ -9,4 +9,7 @@ export default defineConfig({
       strategy: 'all-in-one',
     },
   },
+   server: {
+    port: 7800, // Replace with your desired port
+  },
 });
